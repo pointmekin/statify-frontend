@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Playlists</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button (click)=presentModal() color="medium" class="ion-padding" expand="block">
+    Create a New Playlist
+  </ion-button>
+
+  <ion-list expand="block">
+    <ion-item *ngFor = "let item of itemListData">
+
+      <ion-card (click)="goToDetails(item)"  class="song-card ion-no-padding" >
+        <p><b>{{item.playlist_name}}</b><p>
+          <p>{{item.music.length + " songs"}}</p>
+        
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

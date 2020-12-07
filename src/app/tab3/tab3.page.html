@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Compare
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,57 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Compare</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-item>
+    <ion-label position="stacked" >Song 1</ion-label>
+    <ion-input placeholder="Song 1" [(ngModel)]="query1"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Song 2</ion-label>
+    <ion-input placeholder="Song 2" [(ngModel)]="query2"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="onCompare()"  expand="block" class="ion-padding-horizontal">
+    Compare
+  </ion-button>
+  <ion-button (click)="visualize()"  expand="block" class="ion-padding-horizontal" id="visualize-button">
+    Visualize
+  </ion-button>
+
+  <ion-list expand="block">
+    <ion-item *ngFor = "let item of itemListData">
+
+      <ion-card (click)="goToDetails(item)"  class="song-card ion-no-padding" >
+        <p><b>{{item.name}}</b><p>
+          <p>{{item.artists[0]}}</p>
+        
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-card class="radar-card" id="comparison">
+    <ion-header class="ion-padding-horizontal"><h3>Comparison</h3></ion-header>
+    
+    <canvas id="myChart" width="800" height="800"></canvas>
+
+  </ion-card>
+
+  <ion-card class="ion-no-padding" >
+    <ion-button expand="block" color="medium" (click)="showRawData()">
+      Show Raw Data
+    </ion-button>
+
+      <p>{{rawData}}</p>
+    
+  </ion-card>
+
+  
+
+  <!-- <p>{{combined ? combined['info1']['name'] : ""}}</p> -->
+
 </ion-content>

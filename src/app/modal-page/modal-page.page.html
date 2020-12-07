@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button class="backButton"></ion-back-button>
+    <ion-title>Add</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <p class="ion-padding-horizontal">Please enter the playlist name</p>
+
+  <ion-searchbar [(ngModel)]="playlist_name"></ion-searchbar>
+
+  <ion-button class="ion-padding-horizontal" expand="block" (click)="addToPlaylist()">
+    <p>Add to this playlist</p>
+  </ion-button>
+
+  <ion-button class="ion-padding-horizontal" fill="outline" color="medium" expand="block" (click)="dismiss()">
+    <p>Cancel</p>
+  </ion-button>
+
+</ion-content>

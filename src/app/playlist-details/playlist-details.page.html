@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <span class="header">
+      <ion-back-button class="backButton"></ion-back-button>
+      <ion-title>Detail</ion-title>
+    </span>   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list expand="block">
+    <ion-item *ngFor = "let item of itemListData">
+
+      <ion-card (click)="goToDetails(item)"  class="song-card ion-no-padding" >
+        <p><b>{{item.name}}</b><p>
+          <p>{{item.artists[0]}}</p>
+        
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

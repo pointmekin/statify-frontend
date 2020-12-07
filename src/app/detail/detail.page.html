@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <span class="header">
+      <ion-back-button class="backButton"></ion-back-button>
+      <ion-title>Detail</ion-title>
+    </span>   
+  </ion-toolbar> 
+</ion-header>
+
+
+
+<ion-content class="ion-padding-2">
+  
+  <ion-card class="song-details-card">
+      <ion-card-header class="ion-card-header">
+        <ion-card-title><p>{{data.name}}</p></ion-card-title>
+        
+      </ion-card-header>
+
+
+      <ion-card-content>
+        <p>Released: {{data.year}}</p>
+        Artists: {{data.artists}}
+      </ion-card-content>
+  </ion-card>
+  
+
+
+  
+
+  <ion-card class="radar-card">
+      <h3 class="ion-padding-horizontal">Statistics</h3>
+
+    <ion-card-content>
+      <canvas id="myChart" width="800" height="800"></canvas>
+    </ion-card-content>
+</ion-card>
+
+  <ion-button color="light" size="small" expand="block" class="ion-padding-horizontal" (click)="presentModal(this.data)">
+    <ion-icon name="add" style="float:right" expand="block"></ion-icon>
+    Add to Public Playlist
+  </ion-button>
+
+
+<a id="spotify-button" href="" target="_blank"> 
+  <ion-button class="ion-padding-horizontal" expand="block">
+  <p>Listen on Spotify</p>
+</ion-button> 
+</a>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<ion-card>
+  <ion-card-header class="ion-card-header">
+    <ion-card-title>Raw Data</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{rawData}}
+  </ion-card-content>
+</ion-card>
+</ion-content>
+
