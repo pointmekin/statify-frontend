@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ModalController } from '@ionic/angular';
 import Chart from "chart.js";
 import { ModalPagePage } from '../modal-page/modal-page.page';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: "app-detail",
@@ -16,7 +17,7 @@ export class DetailPage implements OnInit {
   data: any;
   //formattedDate: Number
 
-  constructor(private route: ActivatedRoute, private router: Router, public modalController: ModalController) {
+  constructor(private route: ActivatedRoute, private router: Router, public modalController: ModalController, public alertController: AlertController) {
     this.route.queryParams.subscribe((params) => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state;
@@ -30,8 +31,16 @@ export class DetailPage implements OnInit {
     document.getElementById("spotify-button").setAttribute("href","https://open.spotify.com/track/" + this.data.id);
   }
 
-  addToPlaylist = () => {
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'Added',
+      buttons: ['OK']
+    });
 
+    await alert.present();
   }
 
   async presentModal(data) {

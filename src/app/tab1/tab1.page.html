@@ -19,17 +19,19 @@
     <img id="logo" alt="" style ="height:100px; width:100px;" src="https://www.shareicon.net/data/512x512/2016/05/20/767883_logo_512x512.png">
   </div>
 
-  
-
-  <!-- color="favorite" -->
-  <!-- <ion-button routerDirection="forward" (click)="goToDetails()" expand="block" class="ion-padding-horizontal">
-    Explore Top Charts
-    <ion-icon name="heart"></ion-icon>
-  </ion-button> -->
 
   <div class="ion-padding-horizontal"> 
     <p>
       Explore, Search, Visualize, Compare, and Save your Favorite Music!
+      <br/>
+      <br/>
+      Search and visualize various  musical characteristics of each song in a beautiful and interactive radar chart. 
+      <br/>
+      <br/>
+      Compare two different music and see their differentiating factors.
+      <br/>
+      <br/>
+      Lastly you can create a public playlist, and add your favorite music to them.
     </p>
     <hr/> 
   </div>
@@ -37,9 +39,9 @@
   <ion-button style="text-align: center;" color="medium" expand="block"  class="ion-padding-horizontal" size="small" (click)="showStat()">
     Show Overall Statistics
   </ion-button>
-
+ 
   <div id="fill" class="fill">
-    <img class="summary-image" alt=""  src="http://a2a017f0ec4f.ngrok.io/plot"/>
+    <img class="summary-image" alt=""  src="http://cc2b8ac08a92.ngrok.io/plot"/>
   </div>
 
 
@@ -51,13 +53,11 @@
   </div>
 
   <ion-list >
-    <ion-item *ngFor = "let item of itemListData">
+    <ion-item *ngFor = "let item of itemListData" class="ion-no-padding">
 
-      <ion-card (click)="goToDetails(item)"  class="song-card ">
+      <ion-card (click)="goToDetails(item)"  class="song-card ion-padding" >
         <p>{{(itemListData.indexOf(item) + pageNumber+1).toString()}}. <b>{{item.name}}</b></p>
         <span>{{item.artists[0]}}</span>
-        
-        
       </ion-card>
     </ion-item>
   </ion-list>

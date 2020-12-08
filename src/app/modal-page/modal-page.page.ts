@@ -5,6 +5,7 @@ import Chart from "chart.js";
 import {Input} from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Backend } from 'src/service/backend';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class ModalPagePage implements OnInit {
   playlist_name: String;
 
 
-  constructor(private route: ActivatedRoute, private router: Router, public modalController: ModalController, public http: HttpClient, public backend: Backend) {
+  constructor(private route: ActivatedRoute, private router: Router, public modalController: ModalController, public http: HttpClient, public backend: Backend, public alertController: AlertController) {
   }
 
   ngOnInit() {
@@ -33,6 +34,18 @@ export class ModalPagePage implements OnInit {
     this.modalController.dismiss({
       'dismissed': true
     });
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      subHeader: 'Song added to the playlist',
+      message: 'Added',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   addToPlaylist = ()=> {
@@ -50,6 +63,7 @@ export class ModalPagePage implements OnInit {
         //   itemList.push(data[i]);
         // }
       });
+      this.presentAlert()
 
       this.dismiss()
     }

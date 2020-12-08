@@ -13,7 +13,7 @@
   <ion-list expand="block">
     <ion-item *ngFor = "let item of itemListData">
 
-      <ion-card (click)="goToDetails(item)"  class="song-card ion-no-padding" >
+      <ion-card (click)="goToDetails(item)" class="song-card ion-padding"   >
         <p><b>{{item.playlist_name}}</b><p>
           <p>{{item.music.length + " songs"}}</p>
         

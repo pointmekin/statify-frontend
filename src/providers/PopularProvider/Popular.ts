@@ -24,11 +24,9 @@ export class PopularProvider {
           this.popularity = data[19]["popularity"];
         }
         if (id != 0) {
-          console.log("1 triggered")
           event.target.complete();
         }
         if (data.length !== 20) {
-          console.log("2 triggered")
           event.target.complete();
         }
       });
