@@ -13,9 +13,7 @@ import { AlertController } from '@ionic/angular';
 export class DetailPage implements OnInit {
   myId = "1234";
   rawData: any;
-
   data: any;
-  //formattedDate: Number
 
   constructor(private route: ActivatedRoute, private router: Router, public modalController: ModalController, public alertController: AlertController) {
     this.route.queryParams.subscribe((params) => {
@@ -43,7 +41,7 @@ export class DetailPage implements OnInit {
     await alert.present();
   }
 
-  async presentModal(data) {
+  async presentModal(data: any) {
     const modal = await this.modalController.create({
       component: ModalPagePage,
       cssClass: 'my-custom-class',
@@ -59,7 +57,7 @@ export class DetailPage implements OnInit {
     this.setSpotifyLink()
   }
 
-  createGraph = (data) => {
+  createGraph = (data: any) => {
     let ctx = document.getElementById("myChart");
     let myChart = new Chart(ctx, {
       type: "radar",

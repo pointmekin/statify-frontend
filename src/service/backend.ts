@@ -1,7 +1,7 @@
  
 
 export class Backend {
-  API = "http://cc2b8ac08a92.ngrok.io/"
+  API = "http://d3caa9862509.ngrok.io/"
 
   getAPI = () => {
     return this.API
